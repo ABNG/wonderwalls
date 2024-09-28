@@ -14,14 +14,14 @@ const AboutUs = (props: Props) => {
           <p className="text-pretty text-[#737373]">
             At <strong className="text-borderColor">WonderWalls</strong>, we are
             passionate about transforming spaces through expert craftsmanship
-            and innovative construction solutions. With over 17 years of
-            experience, our team has successfully completed more than 500
-            projects, earning the trust of 500,000+ satisfied clients.
+            and innovative construction solutions. With over 18 years of
+            experience, our team has successfully completed more than 1200
+            projects, earning the trust of 1200+ satisfied clients.
           </p>
           <div className="h-5" />
           <p className="text-pretty text-[#737373]">
-            We specialize in plastering, stone wall construction, general
-            construction, and crush stone services. In every project we
+            We specialize in painting and decorating, plastering, stone houses
+            construction, general construction services. In every project we
             undertake, we always strive for excellence, ensuring that our
             clients receive the highest quality workmanship and results.
           </p>

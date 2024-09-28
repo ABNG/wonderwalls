@@ -29,7 +29,7 @@ const Navbar = (props: Props) => {
         },
       )}
     >
-      <Logo />
+      <Logo isScrolled={isScrolled} />
       <div
         className={`flex items-center gap-4 text-sm font-medium ${isScrolled ? "text-black" : "text-white"}`}
       >
@@ -42,7 +42,7 @@ const Navbar = (props: Props) => {
           className={`flex items-center gap-1 text-xs md:text-base ${isScrolled && "text-borderColor"}`}
         >
           <FaPhoneAlt />
-          +971 566540765
+          00905428744872
         </span>
       </div>
     </div>

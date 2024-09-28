@@ -1,12 +1,21 @@
 import Image from "next/image";
-import logo from "@/public/logo/logo-dark.png";
+import logoLight from "@/public/logo/logo-light.svg";
+import logoDark from "@/public/logo/logo-dark.svg";
 import Link from "next/link";
-type Props = {};
+type Props = {
+  isScrolled: boolean;
+};
 
-const Logo = (props: Props) => {
+const Logo = ({ isScrolled }: Props) => {
+  console.log(isScrolled);
   return (
     <Link href="/">
-      <Image src={logo} alt="logo" priority className="animate-pulse" />
+      <Image
+        src={isScrolled ? logoDark : logoLight}
+        alt="logo"
+        priority
+        className="h-[51px] w-[136px] animate-pulse"
+      />
     </Link>
   );
 };

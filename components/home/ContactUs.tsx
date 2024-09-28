@@ -11,7 +11,7 @@ const ContactUs = (props: Props) => {
       <div className="flex flex-col items-center">
         <Heading title="Contact Us" />
         <div className="h-20" />
-        <div className="flex w-full justify-between gap-6 max-sm:flex-col">
+        <div className="flex w-full justify-between gap-6 max-md:flex-col">
           <ContactUsInfo
             icon={TfiHome}
             title="Address"
@@ -20,7 +20,10 @@ const ContactUs = (props: Props) => {
           <ContactUsInfo
             icon={CiMobile3}
             title="Phone"
-            subtitle={["Phone: (0090) 54 28744 872"]}
+            subtitle={[
+              "For English: (0090)-542 874 48 72 (Shabi)",
+              "For Turkish: (0090)-542 873 20 76 (Yasher Sari)",
+            ]}
           />
           <ContactUsInfo
             icon={TfiEmail}

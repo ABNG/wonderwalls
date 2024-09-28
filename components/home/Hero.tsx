@@ -1,12 +1,12 @@
 import Image from "next/image";
-import Khyber from "@/public/images/khyber.jpg";
+import Khyber from "@/public/images/khyber.jpeg";
 import TypeWriterEffect from "./TypeWriterEffect";
 type Props = {};
 
 const Hero = (props: Props) => {
   return (
     <div className="relative">
-      <div className="after:absolute after:inset-x-0 after:top-0 after:size-full after:bg-[#33333399]">
+      <div className="brightness-75 after:absolute after:inset-x-0 after:top-0 after:size-full after:bg-[#33333399]">
         <Image
           src={Khyber}
           alt="khyber"
@@ -21,10 +21,10 @@ const Hero = (props: Props) => {
             <TypeWriterEffect
               options={{
                 strings: [
+                  "Painting & Decorating",
                   "Plastering",
                   "Stone Walls",
                   "Construction",
-                  "Crush Stone",
                 ],
                 autoStart: true,
                 loop: true,

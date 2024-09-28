@@ -21,20 +21,20 @@ const Experience = (props: Props) => {
           <div className="flex justify-evenly gap-2">
             <ExperienceInfo
               icon={SlBadge}
-              title={500}
+              title={1200}
               titleHelperText="+"
               subtitle="Projects"
             />
             <ExperienceInfo
               icon={GiPodiumWinner}
-              title={17}
+              title={18}
               titleHelperText="+"
               subtitle="Years of Experience"
             />
             <ExperienceInfo
               icon={FaUsers}
-              title={500}
-              titleHelperText="k+"
+              title={1200}
+              titleHelperText="+"
               subtitle="Happy Clients"
             />
           </div>
