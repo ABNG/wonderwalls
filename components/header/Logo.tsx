@@ -7,7 +7,6 @@ type Props = {
 };
 
 const Logo = ({ isScrolled }: Props) => {
-  console.log(isScrolled);
   return (
     <Link href="/">
       <Image
