@@ -7,24 +7,21 @@ import Hero from "@/components/home/Hero";
 import OurClient from "@/components/home/OurClient";
 import Service from "@/components/home/Service";
 
+// Each section owns its anchor id (about, service, work, client, contact).
+// FeaturedWork and OurClient render nothing until lib/content.ts has entries.
 export default function Home() {
   return (
-    <main>
-      <Hero />
-      <div className="h-24" id="about" />
-      <AboutUs />
-      <Experience />
-      <div className="h-24" id="service" />
-      <Service />
-      <div className="h-24" id="work" />
-      <FeaturedWork />
-      <div className="h-24" id="client" />
-      <OurClient />
-      <div className="h-24" id="contact" />
-      <ContactUs />
-      <div className="h-24" />
-      <hr />
+    <>
+      <main>
+        <Hero />
+        <AboutUs />
+        <Experience />
+        <Service />
+        <FeaturedWork />
+        <OurClient />
+        <ContactUs />
+      </main>
       <Footer />
-    </main>
+    </>
   );
 }

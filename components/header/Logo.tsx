@@ -8,12 +8,16 @@ type Props = {
 
 const Logo = ({ isScrolled }: Props) => {
   return (
-    <Link href="/">
+    <Link
+      href="/"
+      aria-label="WonderWalls home"
+      className="rounded-sm outline-none focus-visible:ring-2 focus-visible:ring-ring"
+    >
       <Image
         src={isScrolled ? logoDark : logoLight}
-        alt="logo"
+        alt="WonderWalls"
         priority
-        className="h-[51px] w-[136px] animate-pulse"
+        className="h-10 w-auto"
       />
     </Link>
   );

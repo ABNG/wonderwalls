@@ -1,51 +1,70 @@
 import Image from "next/image";
-import Khyber from "@/public/images/khyber.jpeg";
-import TypeWriterEffect from "./TypeWriterEffect";
-type Props = {};
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
+import Container from "../Container";
+import { heroImage } from "@/lib/content";
 
-const Hero = (props: Props) => {
+const Hero = () => {
   return (
-    <div className="relative">
-      <div className="brightness-75 after:absolute after:inset-x-0 after:top-0 after:size-full after:bg-[#33333399]">
-        <Image
-          src={Khyber}
-          alt="khyber"
-          priority
-          className="w-full object-cover"
-        />
-      </div>
-      <div className="absolute inset-x-0 top-0 z-10 flex size-full flex-col items-center justify-center text-white">
-        <h3 className="flex items-center gap-2 text-lg font-extralight sm:md:text-2xl md:text-3xl">
-          What we can do?{" "}
-          <span className="font-bold text-borderColor">
-            <TypeWriterEffect
-              options={{
-                strings: [
-                  "Painting & Decorating",
-                  "Plastering",
-                  "Stone Walls",
-                  "Construction",
-                ],
-                autoStart: true,
-                loop: true,
-              }}
-            />
-          </span>
-        </h3>
-        <div className="h-5" />
-        <h1 className="flex gap-2 text-2xl italic min-[550px]:text-4xl md:text-6xl">
-          Welcome to{" "}
-          <span className="animate__animated animate__pulse animate__delay-3s not-italic text-borderColor">
-            <TypeWriterEffect
-              onInitText={"WonderWalls"}
-              options={{
-                cursor: "",
-              }}
-            />
-          </span>
-        </h1>
-      </div>
-    </div>
+    <section className="relative isolate flex min-h-[100svh] items-end overflow-hidden bg-[#1f1b16] text-white">
+      <Image
+        src={heroImage}
+        alt="Stone arch gateway built from dressed yellow limestone"
+        priority
+        fill
+        sizes="100vw"
+        className="-z-20 object-cover"
+      />
+      {/* One neutral scrim, darkest where the text sits */}
+      <div
+        aria-hidden
+        className="absolute inset-0 -z-10 bg-gradient-to-t from-black/75 via-black/35 to-black/20"
+      />
+      <Container className="pb-16 pt-32 md:pb-24">
+        <div className="flex max-w-2xl flex-col gap-6">
+          <p
+            className="rise-in text-sm font-medium text-borderColor"
+            style={{ "--i": 0 } as React.CSSProperties}
+          >
+            Kyrenia · Girne, Cyprus
+          </p>
+          <h1
+            className="rise-in text-balance font-display text-[40px] font-normal leading-[1.05] tracking-[-0.03em] sm:text-6xl md:text-[72px]"
+            style={{ "--i": 1 } as React.CSSProperties}
+          >
+            Painting, plastering and stone walls in Kyrenia
+          </h1>
+          <p
+            className="rise-in max-w-xl text-pretty text-lg leading-[1.6] text-white/80 md:text-xl"
+            style={{ "--i": 2 } as React.CSSProperties}
+          >
+            18 years building and finishing homes across Girne, in black and
+            yellow local stone
+          </p>
+          <div
+            className="rise-in flex flex-wrap gap-3 pt-2"
+            style={{ "--i": 3 } as React.CSSProperties}
+          >
+            <Link
+              href="/#contact"
+              className="group inline-flex h-12 items-center gap-2 rounded-[10px] bg-borderColor px-5 font-medium text-[#1f1b16] outline-none transition-[background-color,transform] duration-150 ease-out hover:bg-[#f5c022] focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-black active:scale-[0.97]"
+            >
+              Get a quote
+              <ArrowRight
+                className="size-4 transition-transform duration-200 ease-out group-hover:translate-x-0.5"
+                strokeWidth={1.75}
+              />
+            </Link>
+            <Link
+              href="/#service"
+              className="inline-flex h-12 items-center rounded-[10px] border border-white/25 px-5 font-medium text-white outline-none transition-[background-color,transform] duration-150 ease-out hover:bg-white/10 focus-visible:ring-2 focus-visible:ring-white active:scale-[0.97]"
+            >
+              Our services
+            </Link>
+          </div>
+        </div>
+      </Container>
+    </section>
   );
 };
 

@@ -1,10 +1,17 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Fraunces, Instrument_Sans } from "next/font/google";
 import "./globals.css";
-import "animate.css";
 import Navbar from "@/components/header/Navbar";
 
-const inter = Inter({ subsets: ["latin"] });
+const sans = Instrument_Sans({
+  subsets: ["latin"],
+  variable: "--font-sans",
+});
+const display = Fraunces({
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  variable: "--font-display",
+});
 
 export const metadata: Metadata = {
   title: "WonderWalls - Transforming Spaces in Kyrenia, Cyprus",
@@ -33,8 +40,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
-      <body className={`mx-auto max-w-[1536px] ${inter.className} antialiased`}>
+    <html
+      lang="en"
+      className={`scroll-smooth ${sans.variable} ${display.variable}`}
+    >
+      <body className="font-sans text-[15px] leading-relaxed antialiased">
         <Navbar />
         {children}
       </body>

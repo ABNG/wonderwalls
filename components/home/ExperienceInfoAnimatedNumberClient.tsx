@@ -1,30 +1,33 @@
 "use client";
-import { useInView } from "framer-motion";
-import { useRef, useState } from "react";
+import { useInView, useReducedMotion } from "framer-motion";
+import { useRef } from "react";
 import { AnimatedNumber } from "../ui/AnimatedNumber";
+
 type Props = {
   count: number;
 };
 
+// Counts up once, the first time the figure scrolls into view.
 const ExperienceInfoAnimatedNumberClient = ({ count }: Props) => {
-  const [value, setValue] = useState(0);
   const ref = useRef(null);
-  const isInView = useInView(ref);
+  const isInView = useInView(ref, { once: true, margin: "-80px 0px" });
+  const reduceMotion = useReducedMotion();
 
-  if (isInView && value === 0) {
-    setValue(count);
+  if (reduceMotion) {
+    return (
+      <span ref={ref} className="tabular-nums">
+        {count.toLocaleString("en-US")}
+      </span>
+    );
   }
+
   return (
-    <div ref={ref}>
+    <span ref={ref}>
       <AnimatedNumber
-        springOptions={{
-          bounce: 0,
-          duration: 1000,
-        }}
-        value={value}
-        className="text-3xl font-bold text-white sm:text-6xl"
+        springOptions={{ bounce: 0, duration: 1200 }}
+        value={isInView ? count : 0}
       />
-    </div>
+    </span>
   );
 };
 

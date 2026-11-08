@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { RxHamburgerMenu } from "react-icons/rx";
+import { Menu } from "lucide-react";
 import {
   Sheet,
   SheetContent,
@@ -9,22 +9,25 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import NavMenu from "./NavMenu";
-type Props = {};
 
-const NavPopupMenu = (props: Props) => {
+const NavPopupMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <div className="block rounded-md border-2 border-borderColor p-2 hover:cursor-pointer md:hidden">
+    <div className="md:hidden">
       <Sheet open={isOpen} onOpenChange={setIsOpen}>
         <SheetTrigger asChild>
-          <div>
-            <RxHamburgerMenu className="size-4" />
-          </div>
+          <button
+            type="button"
+            aria-label="Open menu"
+            className="grid size-10 place-items-center rounded-lg outline-none transition-[background-color,transform] duration-150 ease-out hover:bg-black/5 focus-visible:ring-2 focus-visible:ring-ring active:scale-[0.97]"
+          >
+            <Menu className="size-5" strokeWidth={1.5} />
+          </button>
         </SheetTrigger>
-        <SheetContent side={"top"}>
+        <SheetContent side={"top"} className="px-4 pb-6 pt-12">
           <SheetHeader className="sr-only">
-            <SheetTitle>Popup Menu</SheetTitle>
-            <SheetDescription>Popup Menu for Mobile</SheetDescription>
+            <SheetTitle>Menu</SheetTitle>
+            <SheetDescription>Site sections</SheetDescription>
           </SheetHeader>
           <NavMenu isMobile setIsOpen={setIsOpen} />
         </SheetContent>
@@ -34,22 +37,3 @@ const NavPopupMenu = (props: Props) => {
 };
 
 export default NavPopupMenu;
-
-// TODO: try to use shadcn sheet from top
-// <div className="fixed inset-0 min-h-screen bg-neutral-800/70">
-//   <div
-//     className="animate__animated animate__fadeIn absolute left-0 right-0 top-20 bg-white p-8 shadow-md"
-//     onClick={() => {
-//       setTimeout(() => setIsOpen(false), 150);
-//     }}
-//   >
-//     <div className="flex flex-col">
-//       <IoMdClose
-//         size={34}
-//         onClick={() => setIsOpen(false)}
-//         className="self-end rounded-full bg-transparent p-2 text-black transition-colors hover:bg-zinc-300"
-//       />
-//       <NavMenu isMobile />
-//     </div>
-//   </div>
-// </div>
