@@ -1,7 +1,6 @@
-import Image from "next/image";
 import Container from "../Container";
-import About from "@/public/images/about.jpg";
 import Heading from "../Heading";
+import ExperienceInfo from "./ExperienceInfo";
 
 const AboutUs = () => {
   return (
@@ -23,16 +22,16 @@ const AboutUs = () => {
               </p>
             </div>
           </div>
-          {/* Replace with a photo of the team on site, ideally 1200×1100 */}
-          <div className="relative aspect-[11/10] overflow-hidden rounded-2xl bg-white ring-1 ring-border">
-            <Image
-              src={About}
-              alt="The WonderWalls team"
-              fill
-              sizes="(min-width: 768px) 40vw, 100vw"
-              className="object-contain p-6"
+          {/* The company's figures, moved here from the old stats band */}
+          <dl className="flex flex-col divide-y divide-border rounded-2xl bg-card ring-1 ring-border">
+            <ExperienceInfo
+              value={1200}
+              suffix="+"
+              label="Projects completed"
             />
-          </div>
+            <ExperienceInfo value={18} suffix="+" label="Years of experience" />
+            <ExperienceInfo value={1200} suffix="+" label="Happy clients" />
+          </dl>
         </div>
       </Container>
     </section>
