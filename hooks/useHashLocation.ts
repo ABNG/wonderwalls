@@ -5,6 +5,8 @@ const useHashLocation = (): number => {
   const [selected, setSelected] = useState(0);
   const params = useParams();
   useEffect(() => {
+    // window.location.hash is only readable on the client, so sync it after mount.
+    /* eslint-disable react-hooks/set-state-in-effect */
     switch (window.location.hash) {
       case "#about":
         setSelected(1);
@@ -25,6 +27,7 @@ const useHashLocation = (): number => {
         setSelected(0);
         break;
     }
+    /* eslint-enable react-hooks/set-state-in-effect */
   }, [params]);
   return selected;
 };

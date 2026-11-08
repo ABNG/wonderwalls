@@ -12,6 +12,8 @@ const Navbar = (props: Props) => {
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
+    // Sync initial scroll position on mount; window is unavailable during SSR.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setIsScrolled(window.scrollY > 50);
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
