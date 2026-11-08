@@ -1,4 +1,5 @@
 import Footer from "@/components/footer/Footer";
+import StructuredData from "@/components/StructuredData";
 import AboutUs from "@/components/home/AboutUs";
 import ContactUs from "@/components/home/ContactUs";
 import Experience from "@/components/home/Experience";
@@ -12,6 +13,7 @@ import Service from "@/components/home/Service";
 export default function Home() {
   return (
     <>
+      <StructuredData />
       <main>
         <Hero />
         <AboutUs />

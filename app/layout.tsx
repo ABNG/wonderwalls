@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Fraunces, Instrument_Sans } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/header/Navbar";
+import { siteDescription, siteName, siteUrl } from "@/lib/content";
 
 const sans = Instrument_Sans({
   subsets: ["latin"],
@@ -13,10 +14,26 @@ const display = Fraunces({
   variable: "--font-display",
 });
 
+const title = "WonderWalls - Painting, Plastering & Stone Walls in Kyrenia";
+
 export const metadata: Metadata = {
-  title: "WonderWalls - Transforming Spaces in Kyrenia, Cyprus",
-  description:
-    "WonderWalls is your trusted partner for painting and decorating, plastering, stone wall construction, and general construction services in Kyrenia, Cyprus. With over 18 years of experience and 1200+ successful projects, we deliver excellence in every aspect of construction, ensuring premium quality and innovative solutions tailored to your needs.",
+  metadataBase: new URL(siteUrl),
+  title,
+  description: siteDescription,
+  alternates: { canonical: "/" },
+  openGraph: {
+    type: "website",
+    url: "/",
+    siteName,
+    title,
+    description: siteDescription,
+    locale: "en_GB",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title,
+    description: siteDescription,
+  },
   keywords: [
     "WonderWalls",
     "construction services",

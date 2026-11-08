@@ -1,33 +1,39 @@
 "use client";
-import { useInView, useReducedMotion } from "framer-motion";
-import { useRef } from "react";
-import { AnimatedNumber } from "../ui/AnimatedNumber";
+import {
+  motion,
+  useInView,
+  useReducedMotion,
+  useSpring,
+  useTransform,
+} from "framer-motion";
+import { useEffect, useRef } from "react";
 
 type Props = {
   count: number;
 };
 
-// Counts up once, the first time the figure scrolls into view.
+const format = (n: number) => Math.round(n).toLocaleString("en-US");
+
+// The server renders the real figure, so crawlers and no-JS readers see
+// "1,200" rather than "0". On the client it resets to 0 while off screen and
+// counts up once, the first time it scrolls into view.
 const ExperienceInfoAnimatedNumberClient = ({ count }: Props) => {
-  const ref = useRef(null);
+  const ref = useRef<HTMLSpanElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-80px 0px" });
   const reduceMotion = useReducedMotion();
+  const spring = useSpring(count, { bounce: 0, duration: 1200 });
+  const display = useTransform(spring, format);
 
-  if (reduceMotion) {
-    return (
-      <span ref={ref} className="tabular-nums">
-        {count.toLocaleString("en-US")}
-      </span>
-    );
-  }
+  useEffect(() => {
+    if (reduceMotion) spring.jump(count);
+    else if (isInView) spring.set(count);
+    else spring.jump(0);
+  }, [isInView, reduceMotion, count, spring]);
 
   return (
-    <span ref={ref}>
-      <AnimatedNumber
-        springOptions={{ bounce: 0, duration: 1200 }}
-        value={isInView ? count : 0}
-      />
-    </span>
+    <motion.span ref={ref} className="tabular-nums">
+      {display}
+    </motion.span>
   );
 };
 

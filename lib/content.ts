@@ -14,9 +14,52 @@ import MockVilla from "@/public/images/mock/villa.jpg";
 // with a calm area (sky, plain wall) in the lower left for the headline.
 export const heroImage: StaticImageData = HeroImage;
 
+// Production URL, used for canonical links, the sitemap, structured data and
+// social previews. Set NEXT_PUBLIC_SITE_URL (e.g. https://wonderwalls.com) in
+// the hosting environment; on Vercel the production domain is picked up too.
+export const siteUrl = (
+  process.env.NEXT_PUBLIC_SITE_URL ??
+  (process.env.VERCEL_PROJECT_PRODUCTION_URL
+    ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+    : "http://localhost:3000")
+).replace(/\/$/, "");
+
+export const siteName = "WonderWalls";
+export const siteDescription =
+  "Painting, plastering, stone walls and general construction in Kyrenia (Girne), Cyprus. 18+ years and 1200+ projects in local black and yellow stone.";
+
+export const services = [
+  {
+    name: "Painting and decorating",
+    description:
+      "Interior and exterior finishes, from classic to modern, prepared properly so they last",
+  },
+  {
+    name: "Plastering",
+    description:
+      "Smooth, even walls and render, ready for paint or left as a finish",
+  },
+  {
+    name: "Stone walls",
+    description: "Walls and houses built in local black or yellow stone",
+  },
+  {
+    name: "Construction",
+    description: "General building work, managed from start to finish",
+  },
+];
+
 export const phone = {
-  english: { display: "+90 542 874 48 72", tel: "+905428744872", name: "Shabi" },
-  turkish: { display: "+90 542 873 20 76", tel: "+905428732076", name: "Yasher Sari" },
+  english: {
+    display: "+90 542 874 48 72",
+    tel: "+905428744872",
+    name: "Shabi",
+  },
+  turkish: {
+    display: "+90 542 873 20 76",
+    tel: "+905428732076",
+    name: "Yasher Sari",
+  },
 };
 export const whatsappUrl = `https://wa.me/${phone.english.tel.replace("+", "")}`;
 export const email = "shabighumman@yahoo.com";
