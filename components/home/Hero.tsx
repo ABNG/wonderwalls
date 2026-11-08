@@ -15,10 +15,15 @@ const Hero = () => {
         sizes="100vw"
         className="-z-20 object-cover"
       />
-      {/* One neutral scrim, darkest where the text sits */}
+      {/* Neutral scrims, darkest at the lower left where the text sits, so
+          the words stay readable over the stone and the gateway sign */}
       <div
         aria-hidden
-        className="absolute inset-0 -z-10 bg-gradient-to-t from-black/75 via-black/35 to-black/20"
+        className="absolute inset-0 -z-10 bg-gradient-to-t from-black/80 via-black/40 to-black/25"
+      />
+      <div
+        aria-hidden
+        className="absolute inset-0 -z-10 bg-gradient-to-r from-black/60 via-black/25 to-transparent"
       />
       <Container className="pb-16 pt-32 md:pb-24">
         <div className="flex max-w-2xl flex-col gap-6">
@@ -59,7 +64,7 @@ const Hero = () => {
               href="/#service"
               className="inline-flex h-12 items-center rounded-[10px] border border-white/25 px-5 font-medium text-white outline-none transition-[background-color,transform] duration-150 ease-out hover:bg-white/10 focus-visible:ring-2 focus-visible:ring-white active:scale-[0.97]"
             >
-              Our services
+              See our services
             </Link>
           </div>
         </div>
