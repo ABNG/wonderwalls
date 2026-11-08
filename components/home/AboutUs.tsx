@@ -2,35 +2,40 @@ import Image from "next/image";
 import Container from "../Container";
 import About from "@/public/images/about.jpg";
 import Heading from "../Heading";
-type Props = {};
 
-const AboutUs = (props: Props) => {
+const AboutUs = () => {
   return (
-    <Container>
-      <div className="flex items-center max-sm:flex-col">
-        <div className="order-1 flex-[1.5]">
-          <Heading title="About Us" />
-          <div className="h-5" />
-          <p className="text-pretty text-[#737373]">
-            At <strong className="text-borderColor">WonderWalls</strong>, we are
-            passionate about transforming spaces through expert craftsmanship
-            and innovative construction solutions. With over 18 years of
-            experience, our team has successfully completed more than 1200
-            projects, earning the trust of 1200+ satisfied clients.
-          </p>
-          <div className="h-5" />
-          <p className="text-pretty text-[#737373]">
-            We specialize in painting and decorating, plastering, stone houses
-            construction, general construction services. In every project we
-            undertake, we always strive for excellence, ensuring that our
-            clients receive the highest quality workmanship and results.
-          </p>
+    <section id="about" className="scroll-mt-16 py-12 md:py-16">
+      <Container>
+        <div className="grid items-center gap-12 md:grid-cols-[1.2fr_1fr] md:gap-16">
+          <div className="flex flex-col gap-6">
+            <Heading title="About us" />
+            <div className="flex max-w-xl flex-col gap-4 text-pretty text-base text-muted-foreground">
+              <p>
+                WonderWalls is a building and finishing team based in Kyrenia.
+                For over 18 years we have painted, plastered and built homes
+                across the north coast of Cyprus.
+              </p>
+              <p>
+                We do painting and decorating, plastering, stone houses and
+                general construction. Every job, large or small, gets the same
+                care and the same finish.
+              </p>
+            </div>
+          </div>
+          {/* Replace with a photo of the team on site, ideally 1200×1100 */}
+          <div className="relative aspect-[11/10] overflow-hidden rounded-2xl bg-white ring-1 ring-border">
+            <Image
+              src={About}
+              alt="The WonderWalls team"
+              fill
+              sizes="(min-width: 768px) 40vw, 100vw"
+              className="object-contain p-6"
+            />
+          </div>
         </div>
-        <div className="order-2 flex-1">
-          <Image src={About} alt="about us" className="object-cover" />
-        </div>
-      </div>
-    </Container>
+      </Container>
+    </section>
   );
 };
 

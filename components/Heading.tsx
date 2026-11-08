@@ -1,12 +1,28 @@
+import { cn } from "@/lib/utils";
+
 type Props = {
   title: string;
+  intro?: string;
+  className?: string;
 };
 
-const Heading = ({ title }: Props) => {
+const Heading = ({ title, intro, className }: Props) => {
   return (
-    <h1 className="relative text-3xl font-extrabold uppercase text-[#4d4d4d] after:absolute after:left-0 after:top-9 after:h-1 after:w-20 after:bg-borderColor">
-      {title}
-    </h1>
+    <div className={cn("flex flex-col gap-4", className)}>
+      <span className="mortar-course" aria-hidden>
+        <span />
+        <span />
+        <span />
+      </span>
+      <h2 className="font-display text-4xl font-normal leading-[1.1] tracking-[-0.02em] text-foreground md:text-[44px]">
+        {title}
+      </h2>
+      {intro && (
+        <p className="max-w-xl text-pretty text-base text-muted-foreground">
+          {intro}
+        </p>
+      )}
+    </div>
   );
 };
 

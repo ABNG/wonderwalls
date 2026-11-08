@@ -1,33 +1,19 @@
-import { IconType } from "react-icons";
 import ExperienceInfoAnimatedNumberClient from "./ExperienceInfoAnimatedNumberClient";
 
 type Props = {
-  icon: IconType;
-  title: number;
-  titleHelperText?: string;
-  subtitle: string;
+  value: number;
+  suffix?: string;
+  label: string;
 };
-const ExperienceInfo = ({
-  title,
-  titleHelperText,
-  subtitle,
-  icon: Icon,
-}: Props) => {
+
+const ExperienceInfo = ({ value, suffix, label }: Props) => {
   return (
-    <div className="flex flex-col items-center">
-      <Icon className="size-14 text-white sm:size-20" />
-      <div className="h-4" />
-      <div className="flex">
-        <ExperienceInfoAnimatedNumberClient count={title} />
-        {titleHelperText && (
-          <h1 className="text-3xl font-bold text-white sm:text-6xl">
-            {titleHelperText}
-          </h1>
-        )}
-      </div>
-      <h3 className="text-center text-xs font-bold text-white sm:text-sm">
-        {subtitle}
-      </h3>
+    <div className="flex flex-col-reverse items-center justify-end gap-2 text-center md:items-start md:border-l md:border-white/15 md:pl-8 md:text-left">
+      <dt className="text-sm text-white/70">{label}</dt>
+      <dd className="flex items-baseline font-display text-4xl font-normal leading-none tracking-[-0.03em] sm:text-6xl md:text-7xl">
+        <ExperienceInfoAnimatedNumberClient count={value} />
+        {suffix && <span className="text-borderColor">{suffix}</span>}
+      </dd>
     </div>
   );
 };

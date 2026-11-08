@@ -1,38 +1,49 @@
-import { TfiEmail, TfiHome } from "react-icons/tfi";
+import { Mail, MapPin, MessageCircle, Phone } from "lucide-react";
 import Container from "../Container";
 import Heading from "../Heading";
 import ContactUsInfo from "./ContactUsInfo";
-import { CiMobile3 } from "react-icons/ci";
-type Props = {};
+import { address, email, phone, whatsappUrl } from "@/lib/content";
 
-const ContactUs = (props: Props) => {
+const ContactUs = () => {
   return (
-    <Container>
-      <div className="flex flex-col items-center">
-        <Heading title="Contact Us" />
-        <div className="h-20" />
-        <div className="flex w-full justify-between gap-6 max-md:flex-col">
-          <ContactUsInfo
-            icon={TfiHome}
-            title="Address"
-            subtitle={["Kyrenia / Girne, Cyprus"]}
+    <section id="contact" className="scroll-mt-16 py-12 md:py-16">
+      <Container>
+        <div className="grid gap-12 md:grid-cols-[1fr_1.2fr] md:gap-16">
+          <Heading
+            title="Contact"
+            intro="Tell us about the wall, room or house you have in mind and we will get back to you"
           />
-          <ContactUsInfo
-            icon={CiMobile3}
-            title="Phone"
-            subtitle={[
-              "For English: (0090)-542 874 48 72 (Shabi)",
-              "For Turkish: (0090)-542 873 20 76 (Yasher Sari)",
-            ]}
-          />
-          <ContactUsInfo
-            icon={TfiEmail}
-            title="Email"
-            subtitle={["shabighumman@yahoo.com"]}
-          />
+          <ul className="flex flex-col divide-y divide-border overflow-hidden rounded-2xl bg-card ring-1 ring-border">
+            <ContactUsInfo
+              icon={MessageCircle}
+              title="WhatsApp"
+              detail={phone.english.display}
+              href={whatsappUrl}
+              external
+            />
+            <ContactUsInfo
+              icon={Phone}
+              title={`English · ${phone.english.name}`}
+              detail={phone.english.display}
+              href={`tel:${phone.english.tel}`}
+            />
+            <ContactUsInfo
+              icon={Phone}
+              title={`Turkish · ${phone.turkish.name}`}
+              detail={phone.turkish.display}
+              href={`tel:${phone.turkish.tel}`}
+            />
+            <ContactUsInfo
+              icon={Mail}
+              title="Email"
+              detail={email}
+              href={`mailto:${email}`}
+            />
+            <ContactUsInfo icon={MapPin} title="Based in" detail={address} />
+          </ul>
         </div>
-      </div>
-    </Container>
+      </Container>
+    </section>
   );
 };
 

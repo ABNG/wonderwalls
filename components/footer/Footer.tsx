@@ -1,16 +1,15 @@
 import Container from "../Container";
 
-type Props = {};
-
-const Footer = (props: Props) => {
+const Footer = () => {
   return (
-    <Container>
-      <div className="flex justify-center py-8">
-        <p className="text-center text-sm font-normal text-[#737373]">
-          © WonderWalls 2024, All Rights Reserved.
-        </p>
-      </div>
-    </Container>
+    <footer className="border-t border-border">
+      <Container>
+        <div className="flex flex-col items-center justify-between gap-2 py-8 text-sm text-subtle sm:flex-row">
+          <p>© {new Date().getFullYear()} WonderWalls</p>
+          <p>Kyrenia / Girne, Cyprus</p>
+        </div>
+      </Container>
+    </footer>
   );
 };
 
